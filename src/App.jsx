@@ -7,50 +7,49 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/auth/Login.jsx";
-import Signup from "./pages/auth/Signup.jsx";
-import Home from "./pages/dashboard/Home.jsx";
-import Income from './Pages/Dashboard/Income.jsx'
+import Login from "./pages/Auth/Login.jsx";
+import Signup from "./pages/Auth/Signup.jsx";
+import Home from "./Pages/Dashboard/Home.jsx";
+import Income from "./Pages/Dashboard/Income.jsx";
+import UserProvider from "./Context/UserContext.jsx";
+import Expense from "./Pages/Dashboard/Expenses.jsx";
+import ExpenseTracker from "./Pages/Dashboard/ExpenseTracker.jsx";
+// import { toast, ToastContainer } from "react-toastify";
+
+
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Auth Routes */}
-        <Route path="/" element={<Root/>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Home />} />
-        <Route path="/income" element={<Income/>} />
+    <UserProvider>
+      <Router>
+        <Routes>
+          {/* Auth Routes */}
+          <Route path="/" element={<Root />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-
+          {/* Protected / App Routes */}
+          {/* <Route path="/expensetracker" element={<ExpenseTracker />} /> */}
+          <Route path="/expensetracker" element={<ExpenseTracker />}>
+            <Route path="dashboard"   element={<Home/>} />
+            <Route path="income" element={<Income />} />
+            <Route path="expense" element={<Expense />} />
+          </Route>
         </Routes>
-    </Router>
+      </Router>
+    </UserProvider>
   );
 }
 
 export default App;
 
-
 const Root = () => {
-  const isAuthenticated = !localStorage.getItem("item");
+  // true if user is authenticated (exists in localStorage)
+  const isAuthenticated = !!localStorage.getItem("item");
 
-   return isAuthenticated ? (
-    <Navigate to="/dashboard"/>
-    ) : (
-    <Navigate to="/Login"/>
-
-    )
-   }
-
-
-
-
-
-
-
-
-
-
-
-  //  jo masla wo sahi karna bss zada lambi mnhi karna
+  return isAuthenticated ? (
+    <Navigate to="/dashboard" replace />
+  ) : (
+    <Navigate to="/login" replace />
+  );
+};

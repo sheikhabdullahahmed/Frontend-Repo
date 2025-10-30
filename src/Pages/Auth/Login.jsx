@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AuthLayout from "../../Components/Layout/AuthLayout.jsx";
 import { useNavigate, Link } from "react-router-dom";
 import Input from "../../Components/Input/Input.jsx";
 import { validEmail } from "../../utilis/helper.js";
+import axiosInstance from "../../utilis/axiosinstance.js";
+import { UserContext } from "../../Context/UserContext.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+
+  const { updateUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -15,19 +19,38 @@ export default function Login() {
     e.preventDefault();
 
     if (!validEmail(email)) {
-       setError("Please enter a valid email address.");
-      return 
+      setError("Please enter a valid email address.");
+      return;
     }
 
     if (!password) {
       setError("Password must be at least 8 characters long.");
-      return 
+      return;
     }
 
     setError(null);
     // ✅ Login API call yahan karein
-  };
 
+    try {
+      const response = await axiosInstance.post("http://localhost:4000/login", {
+        email,
+        password,
+      });
+      const { token, user } = response.data;
+      if (token) {
+        // ✅ correct condition
+        localStorage.setItem("token", token);
+        updateUser(user);
+        navigate("/expensetracker/dashboard");
+      }
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+  setError(error.response.data.message);
+}else {
+        setError("Something went wrong, please  try again  ");
+      }
+    }
+  };
   return (
     <AuthLayout>
       <div className="flex flex-col justify-center h-full lg:w-[70%] ">

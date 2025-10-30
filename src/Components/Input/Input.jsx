@@ -7,7 +7,7 @@ function Input({ value, onChange, label, type, placeholder }) {
   const togglePassword = () => setShowPassword(!showPassword)
 
   return (
-    <div>
+    <div> 
       <label className="text-[13px] text-slate-800">{label}</label>
       <div className="input-box flex items-center justify-between">
         <input
@@ -15,10 +15,10 @@ function Input({ value, onChange, label, type, placeholder }) {
           placeholder={placeholder}
           value={value}
           className="w-full bg-transparent outline-none"
-          onChange={onChange}
+          onChange={onChange}  
         />
 
-
+      
 
 
 
