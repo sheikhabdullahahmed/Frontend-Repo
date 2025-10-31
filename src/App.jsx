@@ -36,7 +36,7 @@ function App() {
             <Route path="expense" element={<Expense />} />
           </Route>
         </Routes>
-      </Router>
+      </Router>   
     </UserProvider>
   );
 }
