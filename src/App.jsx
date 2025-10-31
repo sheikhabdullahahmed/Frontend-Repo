@@ -7,7 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/Auth/Login.jsx";
+import Login  from "./Pages/auth/Login.jsx";
 import Signup from "./pages/Auth/Signup.jsx";
 import Home from "./Pages/Dashboard/Home.jsx";
 import Income from "./Pages/Dashboard/Income.jsx";
