@@ -6,7 +6,7 @@ import { validEmail } from "../utilis/helper.js";
 import axiosInstance from "../utilis/axiosinstance.js";
 import { UserContext } from "../Context/UserContext.jsx";
 
-export default function Login() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -92,3 +92,8 @@ export default function Login() {
     </AuthLayout>
   );
 }
+
+
+
+
+export default  Login
