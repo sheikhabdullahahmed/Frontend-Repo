@@ -7,13 +7,13 @@ import {
   Navigate,
 } from "react-router-dom";
 import "./App.css";
-import {Login}  from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Home from "./pages/Dashboard/Home.jsx";
-import Income from "./pages/Dashboard/Income.jsx";
+import {Login}  from "./Pages/Login.jsx";
+import Signup from "./Pages/Signup.jsx";
+import Home from "./Pages/Dashboard/Home.jsx";
+import Income from "./Pages/Dashboard/Income.jsx";
 import UserProvider from "./Context/UserContext.jsx";
-import Expense from "./pages/Dashboard/Expenses.jsx";
-import ExpenseTracker from "./pages/Dashboard/ExpenseTracker.jsx";
+import Expense from "./Pages/Dashboard/Expenses.jsx";
+import ExpenseTracker from "./Pages/Dashboard/ExpenseTracker.jsx";
 // import { toast, ToastContainer } from "react-toastify";
 
 
