@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import AuthLayout from "../../Components/Layout/AuthLayout.jsx";
+import AuthLayout from "../Components/Layout/AuthLayout.jsx";
 import { useNavigate, Link } from "react-router-dom";
-import Input from "../../Components/Input/Input.jsx";
-import { validEmail } from "../../utilis/helper.js";
-import axiosInstance from "../../utilis/axiosinstance.js";
-import { UserContext } from "../../Context/UserContext.jsx";
+import Input from "../Components/Input/Input.jsx";
+import { validEmail } from "../utilis/helper.js";
+import axiosInstance from "../utilis/axiosinstance.js";
+import { UserContext } from "../Context/UserContext.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");

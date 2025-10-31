@@ -2,11 +2,11 @@ import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AuthLayout from "../../Components/Layout/AuthLayout.jsx";
-import Input from "../../Components/Input/Input.jsx";
-import { validEmail } from "../../utilis/helper.js";
-import axiosInstance from "../../utilis/axiosinstance.js"
-import { UserContext } from "../../Context/UserContext.jsx";
+import AuthLayout from "../Components/Layout/AuthLayout.jsx";
+import Input from "../Components/Input/Input.jsx";
+import { validEmail } from "../utilis/helper.js";
+import axiosInstance from "../utilis/axiosinstance.js"
+import { UserContext } from "../Context/UserContext.jsx";
 
 const uploadImage = async (file) => {
   try {
